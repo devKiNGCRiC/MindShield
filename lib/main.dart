@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'core/theme/app_theme.dart';
+import 'core/navigation/app_router.dart';
 
 void main() {
   runApp(const MindShieldApp());
@@ -11,15 +13,12 @@ class MindShieldApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MindShield - Digital Wellness',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2E7D59), // MindShield Green
-          brightness: Brightness.light,
-        ),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
+      navigatorKey: AppNavigator.navigatorKey,
       home: const WelcomeScreen(),
-      debugShowCheckedModeBanner: false, // Remove debug banner
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -30,7 +29,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: AppTheme.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -42,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
                 width: 120,
                 height: 120,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF2E7D59),
+                  color: AppTheme.primaryGreen,
                   borderRadius: BorderRadius.circular(60),
                   boxShadow: [
                     BoxShadow(
@@ -62,24 +61,21 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 32),
               
               // App Name
-              const Text(
+              Text(
                 'MindShield',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF2E7D59),
+                style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                  color: AppTheme.primaryGreen,
                 ),
               ),
               
               const SizedBox(height: 8),
               
               // Tagline
-              const Text(
+              Text(
                 'Combat Phone Addiction\nThrough Financial Stakes',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Color(0xFF6C757D),
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: AppTheme.textSecondary,
                   height: 1.5,
                 ),
               ),
@@ -119,27 +115,13 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {
                     // TODO: Navigate to onboarding
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Coming Soon: User Onboarding'),
-                        backgroundColor: Color(0xFF2E7D59),
+                      SnackBar(
+                        content: const Text('Coming Soon: User Onboarding'),
+                        backgroundColor: AppTheme.primaryGreen,
                       ),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF2E7D59),
-                    foregroundColor: Colors.white,
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const Text(
-                    'Get Started',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                  child: const Text('Get Started'),
                 ),
               ),
               
@@ -152,14 +134,13 @@ class WelcomeScreen extends StatelessWidget {
                   vertical: 8,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF2E7D59).withOpacity(0.1),
+                  color: AppTheme.primaryGreen.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Text(
+                child: Text(
                   'v1.0.0 • In Development • September 2025',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Color(0xFF2E7D59),
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: AppTheme.primaryGreen,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -178,12 +159,12 @@ class WelcomeScreen extends StatelessWidget {
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            color: const Color(0xFF2E7D59).withOpacity(0.1),
+            color: AppTheme.primaryGreen.withOpacity(0.1),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(
             icon,
-            color: const Color(0xFF2E7D59),
+            color: AppTheme.primaryGreen,
             size: 24,
           ),
         ),
@@ -197,14 +178,14 @@ class WelcomeScreen extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF212529),
+                  color: AppTheme.textPrimary,
                 ),
               ),
               Text(
                 description,
                 style: const TextStyle(
                   fontSize: 14,
-                  color: Color(0xFF6C757D),
+                  color: AppTheme.textSecondary,
                 ),
               ),
             ],
