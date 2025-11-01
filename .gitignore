@@ -129,7 +129,12 @@ MindShield - Complete Project Idea v1.txt
 secrets.json
 api_keys.txt
 
-# All documentation except learning and README
+# All documentation files in root (except README.md)
+*.md
+!README.md
+!learning/**/*.md
+
+# Specific documentation files
 00_SETUP_GUIDE.md
 01_LEARNING_ROADMAP.md
 02_PROJECT_PLAN.md
@@ -141,3 +146,13 @@ DAY01_PROGRESS_SUMMARY.md
 START_DAY01.md
 PRIVACY_GUIDE.md
 LICENSE
+
+# Any future DAY progress files
+DAY*_PROGRESS_SUMMARY.md
+START_DAY*.md
+
+# Any future guide files
+*_GUIDE.md
+*_COMMANDS.md
+*_STATUS.md
+*_INSTALL.md
