@@ -128,3 +128,16 @@ MindShield - Complete Project Idea v1.txt
 .env.local
 secrets.json
 api_keys.txt
+
+# All documentation except learning and README
+00_SETUP_GUIDE.md
+01_LEARNING_ROADMAP.md
+02_PROJECT_PLAN.md
+START_HERE.md
+GIT_COMMANDS.md
+FLUTTER_INSTALL.md
+FLUTTER_STATUS.md
+DAY01_PROGRESS_SUMMARY.md
+START_DAY01.md
+PRIVACY_GUIDE.md
+LICENSE
